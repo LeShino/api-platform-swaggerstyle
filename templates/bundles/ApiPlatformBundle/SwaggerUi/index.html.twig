@@ -1,0 +1,61 @@
+{# templates/bundles/ApiPlatformBundle/SwaggerUi/index.html.twig #}
+
+{#
+To avoid a "reached nested level" error an exclamation mark `!` has to be added
+See https://symfony.com/blog/new-in-symfony-3-4-improved-the-overriding-of-templates
+#}
+
+{# <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% if title %}{{ title }} {% endif %}My custom template</title>
+    ...
+</html> #}
+
+{% extends '@!ApiPlatform/SwaggerUi/index.html.twig' %}
+
+{#
+Change swagger UI configuration
+All parameters are explained on Swagger UI website:
+https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/
+#}
+
+{# {% block swagger_initialization %}
+    <script type="text/javascript">
+        window.onload = loadSwaggerUI({
+            defaultModelsExpandDepth: -1,
+            deepLinking: true,
+        });
+    </script>
+{% endblock %} #}
+
+{# {% block header_block %}
+    <header>
+        {% block header %}
+            <a id="logo" href="https://github.com/LeShino" target="_blank">
+                <img src="{{ asset('assets/apaym-pay.png') }}" alt="ApiPlatform">
+            </a>
+        {% endblock header %}
+    </header>
+{% endblock header_block %} #}
+
+{# Import your own stylesheet #}
+{# {% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-swagger-styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.png') }}">
+{% endblock stylesheets %} #}
+
+{# Import your own script #}
+{# {% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %} #}
+
+{% block stylesheet %}
+    {# <link rel="stylesheet" href="{{ asset('bundles/nelmioapidoc/fonts/open-sans/400.css') }}"> #}
+    {# <link rel="stylesheet" href="{{ asset('bundles/nelmioapidoc/fonts/open-sans/700.css') }}"> #}
+    <link rel="stylesheet" href="{{ asset('bundles/apiplatform/swagger-ui/swagger-ui.css',) }}">
+    <link rel="stylesheet" href="{{ asset('bundles/apiplatform/style.css',) }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-swagger-styles.css') }}">
+{% endblock %}
